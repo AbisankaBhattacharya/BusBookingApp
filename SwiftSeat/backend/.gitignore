@@ -1,0 +1,15 @@
+# Node modules
+node_modules/
+
+# Environment variables
+.env
+
+# Logs
+*.log
+
+# IDE/Editor specific
+.vscode/
+.DS_Store
+
+# Optional: Angular build files
+dist/
