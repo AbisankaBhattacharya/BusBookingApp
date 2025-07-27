@@ -1,0 +1,19 @@
+<div class="container mt-5">
+  <div class="card shadow p-4">
+    <h2 class="mb-4 text-center">🚌 Create New Bus</h2>
+
+    <div class="form-group mb-3">
+      <label for="busName">Bus Name</label>
+      <input type="text" id="busName" class="form-control" [(ngModel)]="name" placeholder="Enter bus name" required>
+    </div>
+
+    <div class="form-group mb-4">
+      <label for="totalSeats">Total Seats</label>
+      <input type="number" id="totalSeats" class="form-control" [(ngModel)]="totalSeats" placeholder="e.g. 40" min="10" max="100" required>
+    </div>
+
+    <div class="text-center">
+      <button class="btn btn-primary w-100" (click)="createBus()">Create Bus</button>
+    </div>
+  </div>
+</div>
