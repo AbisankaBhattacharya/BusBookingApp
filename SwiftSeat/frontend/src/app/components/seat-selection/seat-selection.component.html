@@ -1,0 +1,73 @@
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">🚌 SwiftSeat</a>
+    <button class="btn btn-outline-light" (click)="logout()">Logout</button>
+  </div>
+</nav>
+
+<!-- Main Container -->
+<div class="container mt-5">
+  <h3 class="text-center mb-4">Choose Your Seats</h3>
+
+  <!-- Legend -->
+  <div class="d-flex justify-content-center gap-3 mb-3">
+    <div class="d-flex align-items-center"><div class="legend-box bg-success me-2"></div> Available</div>
+    <div class="d-flex align-items-center"><div class="legend-box bg-danger me-2"></div> Booked</div>
+    <div class="d-flex align-items-center"><div class="legend-box bg-warning me-2"></div> Selected</div>
+  </div>
+
+  <!-- Spinner -->
+  <div *ngIf="loading" class="text-center mt-4">
+    <div class="spinner-border text-primary" role="status"></div>
+  </div>
+
+  <!-- Bus Layout -->
+  <div class="bus-layout bg-light p-4 rounded" *ngIf="!loading">
+    <div class="text-center mb-3">
+      <span class="badge bg-secondary">Driver Seat</span>
+    </div>
+
+    <div class="row justify-content-center">
+      <div *ngFor="let row of seatRows" class="d-flex justify-content-center mb-3">
+        <!-- Left seats -->
+        <div class="d-flex me-5">
+          <div
+            *ngFor="let seat of row.slice(0, 2)"
+            class="seat-box me-2"
+            [ngClass]="{
+              'bg-success text-white': !seat.booked && !isSelected(seat),
+              'bg-danger text-white': seat.booked,
+              'bg-warning text-dark': isSelected(seat)
+            }"
+            (click)="toggleSeatSelection(seat)"
+          >
+            {{ seat.seatLabel }}
+          </div>
+        </div>
+
+        <!-- Right seats -->
+        <div class="d-flex">
+          <div
+            *ngFor="let seat of row.slice(2, 4)"
+            class="seat-box me-2"
+            [ngClass]="{
+              'bg-success text-white': !seat.booked && !isSelected(seat),
+              'bg-danger text-white': seat.booked,
+              'bg-warning text-dark': isSelected(seat)
+            }"
+            (click)="toggleSeatSelection(seat)"
+          >
+            {{ seat.seatLabel }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Booking Footer -->
+    <div class="text-center mt-4" *ngIf="selectedSeats.length > 0">
+      <p>Total Price: ₹{{ getTotalPrice() }}</p>
+      <button class="btn btn-primary px-5" (click)="bookSelectedSeats()">Book Selected Seats</button>
+    </div>
+  </div>
+</div>

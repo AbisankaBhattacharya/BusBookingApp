@@ -1,0 +1,22 @@
+.seat-box {
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  line-height: 60px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.seat-box:hover {
+  transform: scale(1.05);
+}
+
+.legend-box {
+  width: 25px;
+  height: 25px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}

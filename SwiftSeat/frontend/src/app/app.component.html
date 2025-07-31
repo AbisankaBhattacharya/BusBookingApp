@@ -1,0 +1,10 @@
+<h1>QuickBoard</h1>
+<app-navbar></app-navbar>
+<nav>
+  <a routerLink="/login">Login</a> |
+  <a routerLink="/register">Register</a> |
+  <a routerLink="/dashboard" *ngIf="isLoggedIn()">Dashboard</a> |
+  <a (click)="logout()" *ngIf="isLoggedIn()">Logout</a>
+</nav>
+<hr />
+<router-outlet></router-outlet>
