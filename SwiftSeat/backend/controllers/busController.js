@@ -55,23 +55,26 @@ exports.getSeats = async (req, res) => {
 
 // ✅ Book a seat
 exports.bookSeat = async (req, res) => {
-  const { seatNo, userEmail } = req.body;
+  const { seatNos, userEmail } = req.body;
   const { busId } = req.params;
-
+  console.log("SEATNO",seatNos)
   try {
     const bus = await Bus.findById(busId);
     if (!bus) return res.status(404).json({ message: 'Bus not found' });
-
-    const seat = bus.seats.find((s) => s.seatNo === seatNo);
+    for(let i = 0; i< seatNos.length; i++) {
+  let seat = bus.seats.find((s) => s.seatNo === seatNos[i]);
+  console.log("SEATTT", seat)
     if (!seat) return res.status(404).json({ message: 'Seat not found' });
 
     if (seat.booked) return res.status(400).json({ message: 'Seat already booked' });
 
     seat.booked = true;
     seat.userEmail = userEmail;
+    }
+   
 
     await bus.save();
-    res.status(200).json({ message: 'Seat booked successfully', seat });
+    res.status(200).json({ message: 'Seat booked successfully' });
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: 'Server error while booking seat' });

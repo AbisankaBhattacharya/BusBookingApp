@@ -1,10 +1,32 @@
-<h1>QuickBoard</h1>
-<app-navbar></app-navbar>
-<nav>
-  <a routerLink="/login">Login</a> |
-  <a routerLink="/register">Register</a> |
-  <a routerLink="/dashboard" *ngIf="isLoggedIn()">Dashboard</a> |
-  <a (click)="logout()" *ngIf="isLoggedIn()">Logout</a>
+<!-- Main Navigation Header -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow">
+  <div class="container">
+    <a class="navbar-brand fw-bold" routerLink="/">QuickBoard</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item" *ngIf="!isLoggedIn()">
+          <a class="nav-link" routerLink="/login">Login</a>
+        </li>
+        <li class="nav-item" *ngIf="!isLoggedIn()">
+          <a class="nav-link" routerLink="/register">Register</a>
+        </li>
+        <li class="nav-item" *ngIf="isLoggedIn()">
+          <a class="nav-link" routerLink="/dashboard">Dashboard</a>
+        </li>
+        <li class="nav-item" *ngIf="isLoggedIn()">
+          <a class="nav-link" role="button" (click)="logout()">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
 </nav>
-<hr />
-<router-outlet></router-outlet>
+
+<!-- Page Content -->
+<div class="container mt-4">
+  <router-outlet></router-outlet>
+</div>
