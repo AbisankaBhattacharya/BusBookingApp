@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <div class="container mt-5">
   <h2 class="mb-4 text-center text-primary fw-bold">Available Buses</h2>
 
@@ -21,22 +20,6 @@
           </button>
         </div>
       </div>
-=======
-<div class="container mt-4">
-  <h2 class="mb-4 text-primary">Available Buses</h2>
-
-  <div *ngIf="buses.length === 0" class="text-muted">
-    No buses found.
-  </div>
-
-  <div *ngFor="let bus of buses" class="card mb-3 shadow-sm">
-    <div class="card-body">
-      <h5 class="card-title">{{ bus.name }}</h5>
-      <p class="card-text">Route: {{ bus.route }}</p>
-      <button class="btn btn-success" (click)="goToSeats(bus._id)">
-        View Seats
-      </button>
->>>>>>> 051244d99c6e7b00091817c4cd1e7a86179f1252
     </div>
   </div>
 </div>
