@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="container vh-100 d-flex justify-content-center align-items-center">
   <div class="card shadow-lg p-4" style="width: 100%; max-width: 450px;">
     <h3 class="text-center mb-4 text-primary">Create Your QuickBoard Account</h3>
@@ -47,4 +48,48 @@
       </p>
     </form>
   </div>
+=======
+<div class="container mt-5" style="max-width: 400px;">
+  <h2 class="text-center mb-4">Register</h2>
+  <form (ngSubmit)="register()">
+    
+    <div class="mb-3">
+      <label for="name" class="form-label">Full Name</label>
+      <input 
+        type="text" 
+        class="form-control" 
+        id="name" 
+        placeholder="Enter your name" 
+        [(ngModel)]="name" 
+        name="name" 
+        required />
+    </div>
+
+    <div class="mb-3">
+      <label for="email" class="form-label">Email address</label>
+      <input 
+        type="email" 
+        class="form-control" 
+        id="email" 
+        placeholder="Enter email" 
+        [(ngModel)]="email" 
+        name="email" 
+        required />
+    </div>
+
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input 
+        type="password" 
+        class="form-control" 
+        id="password" 
+        placeholder="Enter password" 
+        [(ngModel)]="password" 
+        name="password" 
+        required />
+    </div>
+
+    <button type="submit" class="btn btn-success w-100">Register</button>
+  </form>
+>>>>>>> 051244d99c6e7b00091817c4cd1e7a86179f1252
 </div>
