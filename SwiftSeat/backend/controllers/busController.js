@@ -19,7 +19,7 @@ exports.createBus = async (req, res) => {
       userEmail: ''
     }));
 
-    const bus = new Bus({ busName, seats });
+    const bus = new Bus({ busName, route, seats });
     await bus.save();
 
     res.status(201).json({ message: 'Bus created', bus });

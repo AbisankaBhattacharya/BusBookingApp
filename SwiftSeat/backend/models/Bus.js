@@ -8,6 +8,7 @@ const seatSchema = new mongoose.Schema({
 
 const busSchema = new mongoose.Schema({
   busName: String,
+  route: String,
   seats: [seatSchema]
 });
 
